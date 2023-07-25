@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body> 
+    <header>
+        <h1 class="main" >URL Shortener</h1>
+        
+    </header>
+    <main>
+        <section>
+            <form  action="/shortUrls" method="POST">
+                <label for="URL" class="sc-only"> Url</label>
+                <input type ="url" name ="URL" id="URL" placeholder="Enter the URL">
+                <button type=" submit">Shorten</button>
+                <p>URL Shortener is a free tool to shorten URLs and generate short links.
+                URL shortener allows to create a shortened link making it easy to share</p>
+            </form>
+        </section>
+
+        <section>
+            <table >
+                <thead>
+                    <tr>
+                        <th>URL</th>
+                        <th>Short URL</th>
+                        <th>Clicks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% shortUrls.forEach(shortUrl => { %>
+                        <tr>
+                            <td><a href="<%= shortUrl.URL %>"><%= shortUrl.URL %></a></td>
+                            <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+                            <td class="clicks"><%= shortUrl.clicks %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <a class="copyright" href="#">&copy; 2023 | All Rights Reserved</a>
+        <div class="right-side">
+            <span class="left-text">stay connected with us on </span>
+                <div class="right-links">
+                    <i class="fa fa-envelope fa-lg email-handle"></i>
+                    <i class="fa fa-linkedin fa-lg linkedin-handle"></i>
+                    <i class="fa fa-instagram fa-lg insta-handle"></i>
+                    <i class="fa fa-twitter fa-lg twitter-handle"></i>
+                </div>
+        </div>
+    </footer>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
